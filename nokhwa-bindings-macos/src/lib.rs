@@ -363,6 +363,7 @@ mod internal {
 
     #[allow(non_upper_case_globals)]
     fn raw_fcc_to_frameformat(raw: OSType) -> Option<FrameFormat> {
+        //print("{:?}", raw);
         match raw {
             kCMVideoCodecType_422YpCbCr8 | kCMPixelFormat_422YpCbCr8_yuvs => {
                 Some(FrameFormat::YUYV)
@@ -371,7 +372,7 @@ mod internal {
             kCMPixelFormat_8IndexedGray_WhiteIsZero => Some(FrameFormat::GRAY),
             kCVPixelFormatType_420YpCbCr10BiPlanarVideoRange
             | kCVPixelFormatType_420YpCbCr8BiPlanarFullRange
-            | 875704438 => Some(FrameFormat::NV12),
+            | 875704438 => Some(FrameFormat::YUYV),
             kCMPixelFormat_24RGB => Some(FrameFormat::RAWRGB),
             _ => Some(FrameFormat::NV12),
         }
