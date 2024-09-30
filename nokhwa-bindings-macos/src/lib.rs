@@ -371,12 +371,11 @@ mod internal {
             kCMPixelFormat_8IndexedGray_WhiteIsZero => Some(FrameFormat::GRAY),
             kCVPixelFormatType_420YpCbCr10BiPlanarVideoRange
             | kCVPixelFormatType_420YpCbCr8BiPlanarFullRange
-            | 875704438 => Some(FrameFormat::NV12),
+            | 875704438 => Some(FrameFormat::YUYV),
             kCMPixelFormat_24RGB => Some(FrameFormat::RAWRGB),
             _ => None,
         }
     }
-
     pub type CompressionData<'a> = (Cow<'a, [u8]>, FrameFormat);
     pub type DataPipe<'a> = (Sender<CompressionData<'a>>, Receiver<CompressionData<'a>>);
 
